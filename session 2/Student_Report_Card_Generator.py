@@ -2,7 +2,7 @@
 def get_data():
     s_data = {}
     num_s = int(input("Enter the number of students: "))
-    subs = ('Math', 'English', 'Science')  # Using tuple for immutable subject names
+    subs = ('Math', 'English', 'Science')  
 
     for _ in range(num_s):
         name = input("\nEnter student name: ")
@@ -33,7 +33,6 @@ def disp_s_rpt(s_name, s_dict):
     print(f"\nReport for {s_name}")
     marks = s_dict[s_name]
     
-    # Using tuple to represent subject-mark pairs
     for sub, score in marks.items():
         sub_mark = (sub, score)
         print(f"{sub_mark[0]}: {sub_mark[1]}")
@@ -87,24 +86,24 @@ def main():
 
     # Show toppers
     toppers = find_toppers(s_data, subs)
-    print("\n📌 Subject-wise Toppers:")
+    print("\n Subject-wise Toppers:")
     for sub, names in toppers.items():
         print(f"{sub}: {', '.join(names)}")
 
     # High scorers using sets
     high_s = find_high_s(s_data)
-    print("\n⭐ Students scoring above 90 in any subject:")
+    print("\n Students scoring above 90 in any subject:")
     print(", ".join(high_s) if high_s else "None")
 
     # Ranking students
     ranked_s = rank_s(s_data)
-    print("\n🏆 Students Ranked by Total Score:")
+    print("\n Students Ranked by Total Score:")
     for rank, (s, score) in enumerate(ranked_s, start=1):
         print(f"{rank}. {s} - Total Score: {score}")
 
     # Subject-wise class averages
     sub_avgs = calc_sub_avgs(s_data, subs)
-    print("\n📊 Subject-wise Class Averages:")
+    print("\n Subject-wise Class Averages:")
     for sub, avg in sub_avgs.items():
         print(f"{sub}: {avg:.2f}")
 
