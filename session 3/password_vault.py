@@ -40,12 +40,12 @@ def add_credential():
     username = input("Enter username: ")
     password = input("Enter password: ")
     vault[username] = password
-    print("✅ Credential added successfully.")
+    print("Credential added successfully.")
 
 # View all credentials
 def view_credentials():
     if not vault:
-        print("🔒 Vault is empty.")
+        print("Vault is empty.")
     else:
         for user, pwd in vault.items():
             print(f"Username: {user}, Password: {pwd}")
@@ -55,23 +55,23 @@ def delete_credential():
     user = input("Enter the username to delete: ")
     if user in vault:
         del vault[user]
-        print("🗑️ Credential deleted.")
+        print("🗑Credential deleted.")
     else:
-        print("❌ Username not found.")
+        print("Username not found.")
 
 # Analyze password strength
 def analyze_strength():
     passwords = list(vault.values())
     if not passwords:
-        print("🔐 No passwords to analyze.")
+        print("No passwords to analyze.")
         return
 
     strong_passwords = list(filter(is_strong_password, passwords))
-    print("\n🔍 Password Strength Analysis:")
+    print("\nPassword Strength Analysis:")
     for user, pwd in vault.items():
         strength = classify_password(pwd)
         print(f"Username: {user} → Password: {pwd} → Strength: {strength}")
-    print(f"\n💪 Strong Passwords ({len(strong_passwords)}): {strong_passwords}")
+    print(f"\nStrong Passwords ({len(strong_passwords)}): {strong_passwords}")
 
 # Main menu loop
 def main():
@@ -94,10 +94,10 @@ def main():
         elif choice == '4':
             analyze_strength()
         elif choice == '5':
-            print("🔚 Exiting Password Vault. Goodbye!")
+            print("Exiting Password Vault. Goodbye!")
             break
         else:
-            print("⚠️ Invalid choice. Please try again.")
+            print("⚠Invalid choice. Please try again.")
 
 # Run the program
 main()
